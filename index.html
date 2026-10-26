@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TumbuhRasa — Yuk, Kenalan dengan Buah!</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+  <!-- Top Navigation Bar Ramah Anak -->
+  <header class="top-navbar">
+    <div class="navbar-inner">
+      <button class="brand-logo" onclick="goToHome()" title="Halaman Beranda TumbuhRasa">
+        <div class="logo-badge">
+          <svg width="30" height="30" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <path d="M32 14 C36 6, 48 6, 46 16 C42 20, 36 18, 32 14 Z" fill="#FFF078"/>
+            <circle cx="32" cy="36" r="20" fill="#FFFFFF"/>
+            <circle cx="25" cy="34" r="2.5" fill="#1F8750"/>
+            <circle cx="39" cy="34" r="2.5" fill="#1F8750"/>
+            <path d="M27 42 Q32 47 37 42" stroke="#1F8750" stroke-width="3" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <div>
+          <span class="brand-title">TumbuhRasa</span>
+          <span class="brand-subtitle">Media Pengenalan Buah untuk Anak</span>
+        </div>
+      </button>
+
+      <nav class="nav-actions">
+        <button id="navBtnHome" class="btn-nav active" onclick="goToHome()">
+          <span>🏠</span>
+          <span>Beranda</span>
+        </button>
+        <button id="navBtnCatalog" class="btn-nav" onclick="goToCatalog()">
+          <span>🍎</span>
+          <span>Daftar Buah (50)</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Interactive Content Container -->
+  <main id="appMainContainer" class="main-container"></main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

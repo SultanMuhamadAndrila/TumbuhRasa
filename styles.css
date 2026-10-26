@@ -1,0 +1,993 @@
+:root {
+  --bg-cream: #FFFDF7;
+  --bg-pastel-green: #EDF8F1;
+  --bg-pastel-yellow: #FFF9E2;
+  --bg-pastel-orange: #FFF0E0;
+  --bg-pastel-pink: #FFEFF2;
+  --bg-card: #FFFFFF;
+
+  --green-main: #2EAD6B;
+  --green-dark: #1F8750;
+  --green-soft: #C6EED8;
+
+  --orange-main: #FF9233;
+  --orange-dark: #E07516;
+  --yellow-main: #FFD147;
+
+  --text-dark: #25382E;
+  --text-body: #4A6154;
+  --text-muted: #789082;
+
+  --border-soft: #E2F0E8;
+  --shadow-card: 0 8px 24px rgba(37, 56, 46, 0.07);
+  --shadow-hover: 0 14px 32px rgba(46, 173, 107, 0.16);
+  --shadow-btn: 0 6px 0 #D97218;
+  --shadow-btn-green: 0 6px 0 #1E824D;
+
+  --radius-sm: 16px;
+  --radius-md: 24px;
+  --radius-lg: 32px;
+  --radius-pill: 999px;
+
+  --font-kid: 'Nunito', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-kid);
+  background-color: var(--bg-cream);
+  background-image:
+    radial-gradient(circle at 10% 15%, var(--bg-pastel-green) 0%, transparent 35%),
+    radial-gradient(circle at 90% 10%, var(--bg-pastel-yellow) 0%, transparent 35%),
+    radial-gradient(circle at 85% 85%, var(--bg-pastel-pink) 0%, transparent 35%);
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   TOP NAVIGATION BAR
+   ========================================================================== */
+.top-navbar {
+  background: rgba(255, 253, 247, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid var(--border-soft);
+  padding: 14px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  text-align: left;
+}
+
+.logo-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #39C27B, #2EAD6B);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(46, 173, 107, 0.28);
+  flex-shrink: 0;
+}
+
+.brand-title {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--green-dark);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.brand-subtitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  display: block;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-nav {
+  background: var(--bg-pastel-green);
+  color: var(--green-dark);
+  border: 2px solid var(--green-soft);
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.btn-nav:hover {
+  background: var(--green-soft);
+  transform: translateY(-2px);
+}
+
+.btn-nav:active {
+  transform: scale(0.96);
+}
+
+.btn-nav.active {
+  background: var(--green-main);
+  color: #FFFFFF;
+  border-color: var(--green-main);
+}
+
+/* ==========================================================================
+   MAIN PAGE CONTAINER
+   ========================================================================== */
+.main-container {
+  flex: 1;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+}
+
+.screen-section {
+  animation: fadeInScreen 0.28s ease-out;
+}
+
+@keyframes fadeInScreen {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   A. HALAMAN BERANDA (HOME SCREEN)
+   ========================================================================== */
+.home-wrapper {
+  background: var(--bg-card);
+  border: 3px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  padding: 44px 32px;
+  box-shadow: var(--shadow-card);
+  text-align: center;
+  max-width: 880px;
+  margin: 12px auto 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-pastel-green);
+  color: var(--green-dark);
+  font-size: 15px;
+  font-weight: 800;
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 20px;
+}
+
+.home-illustration-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 8px auto 26px;
+  flex-wrap: wrap;
+}
+
+.home-fruit-bubble {
+  width: 108px;
+  height: 108px;
+  border-radius: 28px;
+  background: var(--bg-pastel-yellow);
+  border: 3px solid #FFF0B8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+}
+
+.home-fruit-bubble:nth-child(2) {
+  background: var(--bg-pastel-pink);
+  border-color: #FFD6DF;
+  width: 124px;
+  height: 124px;
+}
+
+.home-fruit-bubble:nth-child(3) {
+  background: var(--bg-pastel-green);
+  border-color: var(--green-soft);
+  width: 136px;
+  height: 136px;
+}
+
+.home-fruit-bubble:nth-child(4) {
+  background: var(--bg-pastel-orange);
+  border-color: #FFD9B8;
+  width: 124px;
+  height: 124px;
+}
+
+.home-fruit-bubble:hover {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.home-welcome-title {
+  font-size: clamp(28px, 4.5vw, 44px);
+  font-weight: 900;
+  color: var(--text-dark);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.home-welcome-sub {
+  font-size: clamp(17px, 2.5vw, 22px);
+  font-weight: 700;
+  color: var(--text-body);
+  max-width: 580px;
+  margin: 0 auto 32px;
+  line-height: 1.45;
+}
+
+.btn-start-big {
+  background: linear-gradient(180deg, #FFA347 0%, #FF881B 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 20px 48px;
+  font-family: inherit;
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 900;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  box-shadow: var(--shadow-btn), 0 12px 28px rgba(255, 136, 27, 0.32);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-start-big:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 0 #D97218, 0 16px 32px rgba(255, 136, 27, 0.38);
+}
+
+.btn-start-big:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #D97218;
+}
+
+.home-feature-pills {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+}
+
+.home-feature-item {
+  background: var(--bg-cream);
+  border: 2px solid var(--border-soft);
+  border-radius: 18px;
+  padding: 12px 18px;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-body);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   B. HALAMAN KATALOG BUAH (50 FRUITS GRID)
+   ========================================================================== */
+.catalog-header-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.catalog-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.catalog-title-group h2 {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 900;
+  color: var(--text-dark);
+}
+
+.catalog-title-group p {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.catalog-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.search-box-wrap {
+  flex: 1;
+  min-width: 250px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 44px 14px 50px;
+  border-radius: var(--radius-pill);
+  border: 2.5px solid var(--border-soft);
+  background: var(--bg-cream);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--green-main);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 4px rgba(46, 173, 107, 0.14);
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border-soft);
+  color: var(--text-dark);
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-tabs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cat-tab {
+  border: 2.5px solid var(--border-soft);
+  background: var(--bg-cream);
+  color: var(--text-body);
+  padding: 12px 20px;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cat-tab:hover {
+  border-color: var(--green-main);
+  color: var(--green-dark);
+}
+
+.cat-tab.active {
+  background: var(--green-main);
+  border-color: var(--green-main);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(46, 173, 107, 0.25);
+}
+
+/* Grid Katalog 50 Buah:
+   Desktop: 4 kolom
+   Tablet: 3 kolom
+   Ponsel: 2 kolom */
+.fruits-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.fruit-card {
+  background: var(--bg-card);
+  border: 3px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 20px 16px 18px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.18s ease, box-shadow 0.18s ease;
+  position: relative;
+  user-select: none;
+}
+
+.fruit-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--green-main);
+  box-shadow: var(--shadow-hover);
+}
+
+.fruit-card:active {
+  transform: scale(0.96);
+}
+
+.fruit-card.selected-card {
+  border-color: var(--orange-main);
+  background: var(--bg-pastel-yellow);
+  box-shadow: 0 10px 26px rgba(255, 146, 51, 0.22);
+}
+
+.selected-indicator-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--orange-main);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.fruit-number-badge {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  background: var(--bg-pastel-green);
+  color: var(--green-dark);
+  font-size: 12px;
+  font-weight: 900;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fruit-card-art {
+  width: 116px;
+  height: 116px;
+  border-radius: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  transition: transform 0.2s ease;
+}
+
+.fruit-card:hover .fruit-card-art {
+  transform: scale(1.07);
+}
+
+.fruit-card-name {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.fruit-card-alt {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-top: -6px;
+}
+
+.fruit-card-listen-hint {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--green-dark);
+  background: var(--bg-pastel-green);
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.empty-search-box {
+  background: var(--bg-card);
+  border: 3px dashed var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 48px 24px;
+  text-align: center;
+  grid-column: 1 / -1;
+}
+
+.empty-search-box h3 {
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.empty-search-box p {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+
+/* ==========================================================================
+   C. HALAMAN DETAIL BUAH (2-COLUMN DESKTOP/TABLET, VERTICAL MOBILE)
+   ========================================================================== */
+.detail-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-back-catalog {
+  background: var(--bg-card);
+  color: var(--text-dark);
+  border: 2.5px solid var(--border-soft);
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.15s ease;
+}
+
+.btn-back-catalog:hover {
+  border-color: var(--green-main);
+  background: var(--bg-pastel-green);
+  transform: translateY(-2px);
+}
+
+.detail-position-pill {
+  background: var(--bg-pastel-green);
+  color: var(--green-dark);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 15px;
+  font-weight: 900;
+}
+
+/* Main 2-Column Card on Desktop & Tablet */
+.detail-main-card {
+  background: var(--bg-card);
+  border: 3px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: var(--shadow-card);
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 36px;
+  align-items: center;
+}
+
+/* Sisi Kiri: Gambar/Ilustrasi Buah Besar yang Dapat Ditekan */
+.detail-left-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.detail-image-button {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1 / 1;
+  border-radius: 36px;
+  border: 4px solid var(--border-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+}
+
+.detail-image-button:hover {
+  transform: scale(1.03);
+  border-color: var(--orange-main);
+}
+
+.detail-image-button:active {
+  transform: scale(0.96);
+}
+
+.detail-image-button.speaking-pulse {
+  border-color: var(--orange-main);
+  animation: pulseFruitBox 0.9s infinite ease-in-out;
+}
+
+@keyframes pulseFruitBox {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 146, 51, 0.35);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 0 18px rgba(255, 146, 51, 0);
+  }
+}
+
+.tap-image-hint {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-body);
+  background: var(--bg-pastel-yellow);
+  border: 2px solid #FFE699;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Sisi Kanan: Nama Buah, Tombol Audio, dan Keterangan Singkat */
+.detail-right-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.detail-name-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detail-fruit-name {
+  font-size: clamp(34px, 5vw, 48px);
+  font-weight: 900;
+  color: var(--text-dark);
+  line-height: 1.1;
+}
+
+.detail-fruit-alt {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--green-dark);
+}
+
+/* Audio Controls Row */
+.audio-controls-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-speaker-main {
+  background: linear-gradient(180deg, #FFA347 0%, #FF881B 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 16px 28px;
+  font-family: inherit;
+  font-size: 19px;
+  font-weight: 900;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-btn);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-speaker-main:hover {
+  transform: translateY(-2px);
+}
+
+.btn-speaker-main:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #D97218;
+}
+
+.btn-speaker-repeat {
+  background: var(--bg-pastel-green);
+  color: var(--green-dark);
+  border: 2.5px solid var(--green-soft);
+  border-radius: var(--radius-pill);
+  padding: 15px 22px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+}
+
+.btn-speaker-repeat:hover {
+  background: var(--green-soft);
+  transform: translateY(-2px);
+}
+
+.btn-speaker-repeat:active {
+  transform: scale(0.96);
+}
+
+/* Audio Status Banner (Indikator saat suara diputar / fallback) */
+.audio-status-banner {
+  background: var(--bg-pastel-yellow);
+  border: 2px solid #FFE28A;
+  border-radius: var(--radius-sm);
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #7A5400;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Keterangan Singkat (1–2 Kalimat Sederhana di Samping Gambar) */
+.detail-description-box {
+  background: var(--bg-pastel-green);
+  border: 2.5px solid var(--green-soft);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+}
+
+.detail-description-label {
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--green-dark);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.detail-description-text {
+  font-size: clamp(19px, 2.4vw, 23px);
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+/* Fakta Menarik Sederhana (Dapat Dibuka / Ditutup agar Tidak Terlalu Padat) */
+.funfact-wrapper {
+  border-top: 2px dashed var(--border-soft);
+  padding-top: 14px;
+}
+
+.btn-toggle-funfact {
+  background: var(--bg-pastel-orange);
+  color: var(--orange-dark);
+  border: 2px solid #FFD6B0;
+  border-radius: var(--radius-pill);
+  padding: 10px 18px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+}
+
+.btn-toggle-funfact:hover {
+  background: #FFE4C9;
+}
+
+.funfact-content-box {
+  margin-top: 12px;
+  background: var(--bg-pastel-orange);
+  border: 2px solid #FFD6B0;
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.45;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* Prev / Next Navigation Buttons */
+.detail-bottom-nav {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.btn-prev-next {
+  background: var(--bg-card);
+  color: var(--text-dark);
+  border: 3px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 16px 22px;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.16s ease;
+}
+
+.btn-prev-next:hover {
+  border-color: var(--green-main);
+  background: var(--bg-pastel-green);
+  transform: translateY(-3px);
+}
+
+.btn-prev-next:active {
+  transform: scale(0.98);
+}
+
+.prev-next-sub {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  display: block;
+}
+
+.prev-next-name {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--text-dark);
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (TABLET & MOBILE)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .fruits-catalog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .detail-main-card {
+    padding: 28px;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .detail-main-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 24px 20px;
+  }
+  .detail-right-info {
+    text-align: center;
+    align-items: center;
+  }
+  .audio-controls-group {
+    justify-content: center;
+  }
+  .funfact-content-box {
+    text-align: left;
+  }
+  .detail-image-button {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-navbar {
+    padding: 12px 14px;
+  }
+  .brand-title {
+    font-size: 20px;
+  }
+  .brand-subtitle {
+    display: none;
+  }
+  .fruits-catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .fruit-card {
+    padding: 16px 10px 14px;
+  }
+  .fruit-card-art {
+    width: 96px;
+    height: 96px;
+  }
+  .fruit-card-name {
+    font-size: 17px;
+  }
+  .home-wrapper {
+    padding: 28px 18px;
+  }
+  .home-fruit-bubble {
+    width: 82px !important;
+    height: 82px !important;
+  }
+  .detail-bottom-nav {
+    grid-template-columns: 1fr;
+  }
+  .btn-speaker-main {
+    width: 100%;
+    justify-content: center;
+  }
+  .btn-speaker-repeat {
+    width: 100%;
+    justify-content: center;
+  }
+}
